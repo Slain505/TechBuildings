@@ -35,8 +35,9 @@ namespace DI
         }
     }
     
-    public class DIExampleProject : MonoBehaviour
+    public class DITestProject : MonoBehaviour
     {
+        [Obsolete("Obsolete")]
         private void Awake()
         {
             var projectContainer = new DIContainer();
@@ -44,7 +45,7 @@ namespace DI
             projectContainer.RegisterSingleton("Option1", _ => new TestProjectService());
             projectContainer.RegisterSingleton("Option2", _ => new TestProjectService());
 
-            var sceneRoot = FindObjectOfType<DIExampleScene>();
+            var sceneRoot = FindObjectOfType<DITestScene>();
             sceneRoot.Init(projectContainer);
         }
     }

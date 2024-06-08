@@ -2,14 +2,10 @@
 
 namespace DI
 {
-    public class DIExampleScene : MonoBehaviour
+    public class DITestScene : MonoBehaviour
     {
         public void Init(DIContainer projectContainer)
         {
-            //var serviceWithoutTag = projectContainer.Resolve<MyProjectService>();
-            //var serviceWithTag1 = projectContainer.Resolve<MyProjectService>("Option1");
-            //var serviceWithTag2 = projectContainer.Resolve<MyProjectService>("Option2");
-            
             var sceneContainer = new DIContainer(projectContainer);
             sceneContainer.RegisterSingleton(container => new TestSceneService(container.Resolve<TestProjectService>()));
             sceneContainer.RegisterSingleton(_ => new TestFactory());
